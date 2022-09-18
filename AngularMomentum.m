@@ -1,4 +1,4 @@
-% This program calculates the thermal average of the total angular 
+% This program calculates the thermal average of the total angular
 % momentum as a function of temperature. Multiple values of chemical
 % potential can be specified as a vector (mu_list) to plot simultaneously.
 
@@ -8,7 +8,7 @@ tic
 t = 3; % hopping in eV
 q = -1; % electron charge is -e
 m = 1; % mass of electron
-hbar = 1; 
+hbar = 1;
 kb = 11603;
 Nx = 25; % number of cells in x direction
 Ny = 25; % number of cells in y direction
@@ -32,19 +32,8 @@ H = Hamiltonian_square(t, Nx, Ny, r);
 
 % initialize position operators
 disp('Initializing X and Y');
-X = zeros(N);
-Y = zeros(N);
-
-for x = 1:Nx
-    for y = 1:Ny
-        flat = flatten(x,y,Nx); % flattened indices
-        
-        % In position basis,        
-        % only non-zero values are along the diagonal
-        X(flat,flat) = a * x;
-        Y(flat,flat) = a * y;
-    end
-end
+X = X_square(Nx, Ny, a, 0);
+Y = Y_square(Nx, Ny, a, 0);
 
 % Velocity matrices
 Vx = 1/1i/hbar * (X * H - H * X);
@@ -63,7 +52,7 @@ disp('Diagonalizing H');
 disp('Inverting P');
 %invP = inv(P);
 invP = ctranspose(P);
-    
+
 % Energy levels
 E = diag(D);
 
@@ -79,14 +68,14 @@ figure()
 hold on;
 
 for j = 1:length(mu_list)
-    mu = mu_list(j); 
+    mu = mu_list(j);
     for k = 1:beta_length
         beta = beta_list(k);
         ferm = fermi(E, beta, mu); % column
 
         Lz_vec(1, k) = real(Lzdiag.' * ferm);
     end
-    
+
     % Plotting
     scatter(temp_list, Lz_vec, 5);
 end

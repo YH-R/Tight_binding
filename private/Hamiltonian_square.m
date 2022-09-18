@@ -1,10 +1,11 @@
 % Hamiltonian for square lattice with Peierls substitution
-% r = B * q * a^2 / hbar is dimensionless B field
+% r = B * q * a^2 / hbar: dimensionless B field
+% t: hopping (eV)
 % Landau gauge : (Ax , Ay , Az ) = B (−y , 0 , 0)
 function H = Hamiltonian_square(t, Nx, Ny, r)
     N = Nx * Ny;
     H = zeros([N, N]);
-    
+
     for index1 = 1:Nx % creation index
         for index2 = 1:Ny % creation index
             for x = 1:Nx % annihilation index

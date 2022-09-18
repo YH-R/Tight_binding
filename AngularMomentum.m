@@ -86,7 +86,7 @@ set(gca,'fontsize',16);
 set(gca,'fontname','times');
 %set(gca,'linewidth',1.5);
 ylabel('$L_z/\hbar$', 'Interpreter', 'latex');
-xlabel('T (K)') ;
+xlabel('T (K)');
 %axis([0 1.7 0 1.7]);
 titlestr = strcat('(Nx, Ny)=(',num2str(Nx),',',num2str(Ny),'), B=', ...
     num2str(B/1.1576763e-4), 'T');

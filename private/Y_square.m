@@ -1,5 +1,5 @@
 % Y Position operator for square lattice
-% y0 is offset
+% y0 is offset, to show that physics does not depend on origin
 function Y = Y_square(Nx, Ny, a, y0)
     N = Nx * Ny;
     Y = zeros([N, N]);

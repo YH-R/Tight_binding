@@ -6,8 +6,6 @@ tic
 
 % physical quantities
 t = 3;      % hopping in eV
-q = -1;     % in units of e, electron charge is -e
-hbar = 1;
 
 Nx = 7;      % number of sites in x direction (periodic)
 Ny = 10;     % number of sites in y direction (open)

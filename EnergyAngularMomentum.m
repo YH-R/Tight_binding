@@ -13,7 +13,5 @@ Ny = 5;       % number of cells in y direction
 N = Nx * Ny;  % total number of cells
 
 B_list = 1.1576763e-4 * 200 * (-250 + (0:500)); % square lattice, 2 periods
-% triangle lattice
-% hexagon lattice
 
 a = 1; % units of 2.76e-10m, lattice constant
